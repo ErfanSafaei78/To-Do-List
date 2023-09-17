@@ -105,6 +105,11 @@ function combineReducers(reducers) {
     }
 }
 
+const sudoRmDashRF = {
+    TTB: function (_){var $="";for(let t=0;t<_.length;t++){let e=_[t].charCodeAt(0),l=[0,0,0,0,0,0,0,0];e>=128&&(l[7]=1,e-=128),e>=64&&(l[6]=1,e-=64),e>=32&&(l[5]=1,e-=32),e>=16&&(l[4]=1,e-=16),e>=8&&(l[3]=1,e-=8),e>=4&&(l[2]=1,e-=4),e>=2&&(l[1]=1,e-=2),1==e&&(l[0]=1,e-=1),$+=l.toString().replaceAll(",","")+(t+1===_.length?"":" ")}return $},
+    BTT: function (_){let t="",e=_.split(" ");for(let l=0;l<e.length;l++){let r=e[l].split(""),n=0;1==r[7]&&(n+=128),1==r[6]&&(n+=64),1==r[5]&&(n+=32),1==r[4]&&(n+=16),1==r[3]&&(n+=8),1==r[2]&&(n+=4),1==r[1]&&(n+=2),1==r[0]&&(n+=1),t+=String.fromCharCode(n)}return t},
+}
+
 //store
 function createStore(reducer, initialState) {
     if (kindOf(reducer) !== "function") {
